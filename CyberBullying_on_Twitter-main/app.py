@@ -63,6 +63,8 @@ def predict():
         prediction = output_map[prediction[0]] # map prediction
 
         prediction = 'Prediction: '+ prediction
+        if prediction[0]==0 or prediction[1]==1:
+            api.report_spam(screen_name = inp_text)
 
     return render_template('base.html',output=prediction,message=value)
 
